@@ -43,6 +43,7 @@
 
     <modules>
         <module>common-resource</module>
+        <module>raw-servlet-jetty</module>
     </modules>
 
     <!--+
@@ -51,7 +52,7 @@
     <dependencies>
 
         <!--+
-            | Default scope
+            | Provided scope
             +-->
         <dependency>
             <!-- Required to use logging -->
