@@ -44,6 +44,7 @@
     <modules>
         <module>common-resource</module>
         <module>raw-servlet-jetty</module>
+        <module>annotated-servlet-jetty</module>
     </modules>
 
     <!--+
