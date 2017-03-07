@@ -16,7 +16,7 @@ public class ResourceManager {
     public static String getCountriesAsJsonString() throws IOException {
         InputStream inputStream = ResourceManager.class.getClassLoader().getResourceAsStream(JSON_COUNTRIES);
         if (inputStream != null) {
-            LOGGER.info("Bytes available: {}", inputStream.available());
+            LOGGER.debug("Bytes available: {}", inputStream.available());
             ByteArrayOutputStream result = new ByteArrayOutputStream();
             byte[] buffer = new byte[BUFFER_SIZE];
             int length;

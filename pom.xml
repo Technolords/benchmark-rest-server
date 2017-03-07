@@ -52,13 +52,12 @@
     <dependencies>
 
         <!--+
-            | Provided scope
+            | Default scope
             +-->
         <dependency>
             <!-- Required to use logging -->
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
-            <scope>provided</scope>
             <version>${version.log4j2}</version>
         </dependency>
 
@@ -66,7 +65,6 @@
             <!-- Required to use logging -->
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <scope>provided</scope>
             <version>${version.log4j2}</version>
         </dependency>
 
@@ -74,7 +72,6 @@
             <!-- Required to bridge slf4j over log4j -->
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j-impl</artifactId>
-            <scope>provided</scope>
             <version>${version.log4j2}</version>
         </dependency>
 

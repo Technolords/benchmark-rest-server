@@ -1,7 +1,7 @@
 package net.technolords.benchmark.server;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.Writer;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,7 +20,7 @@ public class CountriesServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        LOGGER.info("About to buffer response...");
+        LOGGER.info("Init: buffering response...");
         try {
             BUFFERED_RESPONSE = ResourceManager.getCountriesAsJsonString();
         } catch (IOException e) {
@@ -30,14 +30,21 @@ public class CountriesServlet extends HttpServlet {
     }
 
     @Override
+    public void destroy() {
+        LOGGER.info("Destroy: closing...");
+        super.destroy();
+    }
+
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        LOGGER.info("About to generate a response...");
+        LOGGER.debug("About to generate a response...");
         response.setContentType(JSON_CONTENT_TYPE);
         response.setStatus(HttpServletResponse.SC_OK);
         this.populateResponse(response.getWriter());
     }
 
-    private void populateResponse(PrintWriter writer) {
-        writer.println(BUFFERED_RESPONSE);
+    private void populateResponse(Writer writer) throws IOException {
+        writer.write(BUFFERED_RESPONSE);
+        writer.flush();
     }
 }

@@ -19,6 +19,7 @@
         +-->
     <properties>
         <version.jetty.server>9.4.2.v20170220</version.jetty.server>
+        <version.maven.plugin.shade>2.4.3</version.maven.plugin.shade>
     </properties>
 
     <!--+
@@ -39,10 +40,52 @@
             | Default scope
             +-->
         <dependency>
+            <!-- Required to create a Jetty server -->
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-server</artifactId>
             <version>${version.jetty.server}</version>
         </dependency>
+
+        <dependency>
+            <!-- Required to instantiate a ServletHandler -->
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-servlet</artifactId>
+            <version>${version.jetty.server}</version>
+        </dependency>
     </dependencies>
+
+    <build>
+        <!-- Allow placeholders in files in resources folder to be translated -->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <defaultGoal>install</defaultGoal>
+        <plugins>
+            <plugin>
+                <!-- Required to bundle all dependencies in a single jar (packaging) -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>${version.maven.plugin.shade}</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>net.technolords.benchmark.server.ServletMain</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
     
 </project>
