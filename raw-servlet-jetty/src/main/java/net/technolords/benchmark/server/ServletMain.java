@@ -7,6 +7,8 @@ import org.eclipse.jetty.util.thread.QueuedThreadPool;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import net.technolords.benchmark.config.ConfigurationManager;
+
 public class ServletMain {
     private final Logger LOGGER = LoggerFactory.getLogger(getClass());
     private static final String PATH = "/countries";
