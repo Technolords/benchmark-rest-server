@@ -25,4 +25,5 @@ The matrix below gives an overview of the modules and their related stacks (orde
 
 Module | Container | Wiring | Stack
 -------|-----------|--------|------
+[raw servlet jetty](https://github.com/Technolords/benchmark-rest-server/tree/master/raw-servlet-jetty) | Jetty 9 | Manual | None, using standard java 8
 
