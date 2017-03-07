@@ -25,6 +25,7 @@
         <!--+
             | Version properties
             +-->
+        <version.log4j2>2.7</version.log4j2>
         <version.testng>6.9.4</version.testng>
         <version.plugin.compiler>3.3</version.plugin.compiler>
         <version.plugin.helper>1.12</version.plugin.helper>
@@ -40,6 +41,10 @@
         <tag>HEAD</tag>
     </scm>
 
+    <modules>
+        <module>common-resource</module>
+    </modules>
+
     <!--+
         | Dependencies
         +-->
@@ -48,6 +53,29 @@
         <!--+
             | Default scope
             +-->
+        <dependency>
+            <!-- Required to use logging -->
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <scope>provided</scope>
+            <version>${version.log4j2}</version>
+        </dependency>
+
+        <dependency>
+            <!-- Required to use logging -->
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <scope>provided</scope>
+            <version>${version.log4j2}</version>
+        </dependency>
+
+        <dependency>
+            <!-- Required to bridge slf4j over log4j -->
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <scope>provided</scope>
+            <version>${version.log4j2}</version>
+        </dependency>
 
         <!--+
             | Test scope

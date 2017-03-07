@@ -2,6 +2,7 @@
 
 #### Index
 - [Introduction](https://github.com/Technolords/benchmark-rest-server/tree/master#introduction)
+- [Matrix](https://github.com/Technolords/benchmark-rest-server#matrix)
 
 ## Introduction
 As the open source communities move forward, and new libraries are created, it raises
