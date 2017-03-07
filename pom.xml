@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation=" http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>net.technolords.benchmark</groupId>
+    <artifactId>rest-server</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>Technolords :: Benchmark :: Rest Server :: Pom</name>
+    <description>
+		The root maven project file
+    </description>
+
+    <!--+
+        | Properties
+        +-->
+    <properties>
+        <!--+
+            | Project properties
+            +-->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.version>1.8</project.build.version>
+
+        <!--+
+            | Version properties
+            +-->
+        <version.testng>6.9.4</version.testng>
+        <version.plugin.compiler>3.3</version.plugin.compiler>
+        <version.plugin.helper>1.12</version.plugin.helper>
+        <version.plugin.source>2.4</version.plugin.source>
+        <version.plugin.surefire>2.18.1</version.plugin.surefire>
+    </properties>
+
+    <!--+
+        | Source control management
+        +-->
+    <scm>
+        <connection>scm:git:https://github.com/Technolords/benchmark-rest-server</connection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <!--+
+        | Dependencies
+        +-->
+    <dependencies>
+
+        <!--+
+            | Default scope
+            +-->
+
+        <!--+
+            | Test scope
+            +-->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${version.testng}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <!--+
+        | Build
+        +-->
+    <build>
+        <!-- Allow placeholders in files in resources folder to be translated -->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
+        <defaultGoal>install</defaultGoal>
+
+        <plugins>
+
+            <plugin>
+                <!-- Required to compile the java sources against a JVM spec -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${version.plugin.compiler}</version>
+                <configuration>
+                    <source>${project.build.version}</source>
+                    <target>${project.build.version}</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <!-- Source plugin configuration -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${version.plugin.source}</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <!-- Required to execute unit tests, supporting both JUnit and TestNG -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${version.plugin.surefire}</version>
+                <configuration>
+                    <useFile>true</useFile>
+                    <failIfNoTests>false</failIfNoTests>
+                    <includes>
+                        <include>**/*Test.java</include>
+                    </includes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>exec-with-testng</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <configuration>
+                            <testNGArtifactName>none:none</testNGArtifactName>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>test-with-junit</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <configuration>
+                            <junitArtifactName>none:none</junitArtifactName>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <!-- Required to generate timestamp with correct timezone -->
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>${version.plugin.helper}</version>
+                <executions>
+                    <execution>
+                        <id>timestamp-property</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>timestamp-property</goal>
+                        </goals>
+                        <configuration>
+                            <name>build.timestamp</name>
+                            <pattern>yyyy-MM-dd HH:mm:ss</pattern>
+                            <timeZone>Etc/GMT-1</timeZone>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <!-- Release plugin configuration-->
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <tagNameFormat>@{project.version}</tagNameFormat>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+    <distributionManagement>
+        <downloadUrl>https://github.com/Technolords/benchmark-rest-server/releases</downloadUrl>
+    </distributionManagement>
+
+</project>
