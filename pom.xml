@@ -45,6 +45,7 @@
         <module>common-resource</module>
         <module>raw-servlet-jetty</module>
         <module>annotated-servlet-jetty</module>
+        <module>jersey-grizzly</module>
     </modules>
 
     <!--+
