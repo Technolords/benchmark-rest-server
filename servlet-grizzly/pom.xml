@@ -19,6 +19,8 @@
         +-->
     <properties>
         <version.maven.plugin.shade>2.4.3</version.maven.plugin.shade>
+        <version.jersey.grizzly>1.15</version.jersey.grizzly>
+        <version.grizzly.servlet>1.9.18-i</version.grizzly.servlet>
     </properties>
 
     <!--+
@@ -39,15 +41,17 @@
             | Default scope
             +-->
         <dependency>
+            <!-- Required to use the Grizzly server -->
             <groupId>com.sun.jersey</groupId>
             <artifactId>jersey-grizzly</artifactId>
-            <version>1.15</version>
+            <version>${version.jersey.grizzly}</version>
         </dependency>
 
         <dependency>
+            <!-- Required to use core Servlet classes -->
             <groupId>com.sun.grizzly</groupId>
             <artifactId>grizzly-servlet-webserver</artifactId>
-            <version>1.9.18-i</version>
+            <version>${version.grizzly.servlet}</version>
         </dependency>
     </dependencies>
 
