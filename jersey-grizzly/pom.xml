@@ -17,5 +17,72 @@
     <packaging>jar</packaging>
     <name>Technolords :: Benchmark :: Jersey with Grizzly</name>
 
-    
+    <!--+
+        | Properties
+        +-->
+    <properties>
+        <version.maven.plugin.shade>2.4.3</version.maven.plugin.shade>
+        <version.jersey.grizzly2>1.19.3</version.jersey.grizzly2>
+    </properties>
+
+    <!--+
+        | Dependencies
+        +-->
+    <dependencies>
+
+        <!--+
+            | Technolords dependencies
+            +-->
+        <dependency>
+            <groupId>net.technolords.benchmark</groupId>
+            <artifactId>common-resource</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!--+
+            | Default scope
+            +-->
+        <dependency>
+            <!-- See also: https://jersey.java.net/documentation/latest/modules-and-dependencies.html -->
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-grizzly2</artifactId>
+            <version>${version.jersey.grizzly2}</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <!-- Allow placeholders in files in resources folder to be translated -->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <defaultGoal>install</defaultGoal>
+        <plugins>
+            <plugin>
+                <!-- Required to bundle all dependencies in a single jar (packaging) -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>${version.maven.plugin.shade}</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>net.technolords.benchmark.server.JerseyMain</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>

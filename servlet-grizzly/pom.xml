@@ -12,7 +12,7 @@
 
     <artifactId>servlet-grizzly</artifactId>
     <packaging>jar</packaging>
-    <name>Technolords :: Benchmark :: Jersey with Grizzly</name>
+    <name>Technolords :: Benchmark :: Servlet with Grizzly</name>
 
     <!--+
         | Properties
