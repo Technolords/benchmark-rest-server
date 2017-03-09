@@ -3,9 +3,6 @@ camel
     camel + cxf
     camel + springboot  http://camel.apache.org/spring-boot-example.html
 
-cxf
-    cxf
-
 dropwizard
 
 springboot
