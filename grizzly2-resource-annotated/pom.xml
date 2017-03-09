@@ -13,9 +13,9 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>jersey-grizzly</artifactId>
+    <artifactId>grizzly2-resource-annotated</artifactId>
     <packaging>jar</packaging>
-    <name>Technolords :: Benchmark :: Jersey with Grizzly</name>
+    <name>Technolords :: Benchmark :: Grizzly :: Resource annotated</name>
 
     <!--+
         | Properties

@@ -13,9 +13,9 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>annotated-servlet-jetty</artifactId>
+    <artifactId>jetty9-servlet-raw</artifactId>
     <packaging>jar</packaging>
-    <name>Technolords :: Benchmark :: Annotated Servlet with Jetty</name>
+    <name>Technolords :: Benchmark :: Jetty :: Servlet raw</name>
 
     <!--+
         | Properties
@@ -50,16 +50,9 @@
         </dependency>
 
         <dependency>
-            <!-- Required to instantiate a WebAppContext -->
+            <!-- Required to instantiate a ServletHandler -->
             <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-webapp</artifactId>
-            <version>${version.jetty.server}</version>
-        </dependency>
-
-        <dependency>
-            <!-- Required to use annotations -->
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-annotations</artifactId>
+            <artifactId>jetty-servlet</artifactId>
             <version>${version.jetty.server}</version>
         </dependency>
     </dependencies>

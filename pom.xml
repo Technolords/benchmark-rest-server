@@ -8,7 +8,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>net.technolords.benchmark</groupId>
-    <artifactId>rest-server</artifactId>
+    <artifactId>benchmark-rest-server</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
@@ -48,10 +48,10 @@
 
     <modules>
         <module>common-resource</module>
-        <module>raw-servlet-jetty</module>
-        <module>annotated-servlet-jetty</module>
-        <module>servlet-grizzly</module>
-        <module>jersey-grizzly</module>
+        <module>grizzly1-servlet-raw</module>
+        <module>grizzly2-resource-annotated</module>
+        <module>jetty9-servlet-annotated</module>
+        <module>jetty9-servlet-raw</module>
     </modules>
 
     <!--+

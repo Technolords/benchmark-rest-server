@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+>
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -10,17 +13,16 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>servlet-grizzly</artifactId>
+    <artifactId>jetty9-servlet-annotated</artifactId>
     <packaging>jar</packaging>
-    <name>Technolords :: Benchmark :: Servlet with Grizzly</name>
+    <name>Technolords :: Benchmark :: Jetty :: Servlet annotated</name>
 
     <!--+
         | Properties
         +-->
     <properties>
+        <version.jetty.server>9.4.2.v20170220</version.jetty.server>
         <version.maven.plugin.shade>2.4.3</version.maven.plugin.shade>
-        <version.jersey.grizzly>1.15</version.jersey.grizzly>
-        <version.grizzly.servlet>1.9.18-i</version.grizzly.servlet>
     </properties>
 
     <!--+
@@ -28,9 +30,9 @@
         +-->
     <dependencies>
 
-    <!--+
-        | Technolords dependencies
-        +-->
+        <!--+
+            | Technolords dependencies
+            +-->
         <dependency>
             <groupId>net.technolords.benchmark</groupId>
             <artifactId>common-resource</artifactId>
@@ -41,17 +43,24 @@
             | Default scope
             +-->
         <dependency>
-            <!-- Required to use the Grizzly server -->
-            <groupId>com.sun.jersey</groupId>
-            <artifactId>jersey-grizzly</artifactId>
-            <version>${version.jersey.grizzly}</version>
+            <!-- Required to create a Jetty server -->
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>${version.jetty.server}</version>
         </dependency>
 
         <dependency>
-            <!-- Required to use core Servlet classes -->
-            <groupId>com.sun.grizzly</groupId>
-            <artifactId>grizzly-servlet-webserver</artifactId>
-            <version>${version.grizzly.servlet}</version>
+            <!-- Required to instantiate a WebAppContext -->
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-webapp</artifactId>
+            <version>${version.jetty.server}</version>
+        </dependency>
+
+        <dependency>
+            <!-- Required to use annotations -->
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-annotations</artifactId>
+            <version>${version.jetty.server}</version>
         </dependency>
     </dependencies>
 
@@ -79,7 +88,7 @@
                         <configuration>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>net.technolords.benchmark.server.JerseyMain</mainClass>
+                                    <mainClass>net.technolords.benchmark.server.ServletMain</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
