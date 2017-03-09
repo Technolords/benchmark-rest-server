@@ -12,7 +12,7 @@
 
     <artifactId>grizzly1-servlet-raw</artifactId>
     <packaging>jar</packaging>
-    <name>Technolords :: Benchmark :: Grizzly :: Servlet raw</name>
+    <name>Technolords :: Benchmark :: Grizzly1 :: Servlet raw</name>
 
     <!--+
         | Properties

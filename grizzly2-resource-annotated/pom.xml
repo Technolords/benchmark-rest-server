@@ -15,7 +15,7 @@
 
     <artifactId>grizzly2-resource-annotated</artifactId>
     <packaging>jar</packaging>
-    <name>Technolords :: Benchmark :: Grizzly :: Resource annotated</name>
+    <name>Technolords :: Benchmark :: Grizzly2 :: Resource annotated</name>
 
     <!--+
         | Properties

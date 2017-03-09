@@ -15,7 +15,7 @@
 
     <artifactId>jetty9-servlet-raw</artifactId>
     <packaging>jar</packaging>
-    <name>Technolords :: Benchmark :: Jetty :: Servlet raw</name>
+    <name>Technolords :: Benchmark :: Jetty9 :: Servlet raw</name>
 
     <!--+
         | Properties
