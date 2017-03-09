@@ -22,7 +22,7 @@ public class JerseyMain {
         Thread.currentThread().join(); // Prevents termination
     }
 
-    public void registerShutdownHook(HttpServer httpServer) {
+    private void registerShutdownHook(HttpServer httpServer) {
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             LOGGER.info("Terminating server...");
             httpServer.stop();
