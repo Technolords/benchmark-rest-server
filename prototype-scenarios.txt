@@ -14,3 +14,5 @@ other
     java endpoint       http://stackoverflow.com/questions/3680600/publishing-a-ws-with-jax-ws-endpoint
                         https://blogs.oracle.com/michaelmcm/entry/http_server_api_in_java
                         javax.xml.ws.Endpoint
+
+    netty-http ?
