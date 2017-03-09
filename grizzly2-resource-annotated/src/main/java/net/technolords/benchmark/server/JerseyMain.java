@@ -11,6 +11,11 @@ import org.glassfish.jersey.server.ResourceConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import net.technolords.benchmark.server.api.CountriesResource;
+
+/**
+ * See: https://jersey.java.net/documentation/latest/index.html
+ */
 public class JerseyMain {
     private final Logger LOGGER = LoggerFactory.getLogger(getClass());
 
@@ -28,7 +33,7 @@ public class JerseyMain {
 
     private ResourceConfig createResourceConfig() {
         ResourceConfig resourceConfig = new ResourceConfig();
-        resourceConfig.packages("net.technolords.benchmark.server.api");
+        resourceConfig.packages(CountriesResource.class.getPackage().getName());
         return resourceConfig;
     }
 

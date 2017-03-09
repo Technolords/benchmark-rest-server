@@ -25,7 +25,7 @@ public class CountriesResource {
     @GET
     @Produces (MediaType.APPLICATION_JSON)
     public String getCountries() {
-        LOGGER.info("getCountries called...");
+        LOGGER.debug("getCountries called...");
         return BUFFERED_RESPONSE;
     }
 }
