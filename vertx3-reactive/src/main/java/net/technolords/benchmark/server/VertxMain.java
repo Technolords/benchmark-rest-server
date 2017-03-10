@@ -29,7 +29,7 @@ public class VertxMain extends AbstractVerticle {
 
     @Override
     public void start() throws Exception {
-        LOGGER.info("Yay started....");
+        LOGGER.info("Verticle started....");
         try {
             BUFFERED_RESPONSE = ResourceManager.getCountriesAsJsonString();
         } catch (IOException e) {
