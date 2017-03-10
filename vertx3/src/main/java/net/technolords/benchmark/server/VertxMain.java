@@ -42,6 +42,7 @@ public class VertxMain {
         vertxMain.configureAndRun();
     }
 
+    // add verticle?
     // http://vertx.io/docs/vertx-core/java/
     // http://vertx.io/docs/vertx-rx/java/
 }
