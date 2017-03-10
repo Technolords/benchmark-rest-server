@@ -12,7 +12,7 @@
 
     <artifactId>vertx3-core</artifactId>
     <packaging>jar</packaging>
-    <name>Technolords :: Benchmark :: Vertx</name>
+    <name>Technolords :: Benchmark :: Vertx core</name>
 
     <!--+
         | Properties

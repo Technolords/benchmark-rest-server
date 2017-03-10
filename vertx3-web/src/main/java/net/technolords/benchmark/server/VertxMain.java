@@ -7,6 +7,9 @@ import org.slf4j.LoggerFactory;
 
 import io.vertx.core.Vertx;
 import io.vertx.core.VertxOptions;
+import io.vertx.core.http.HttpServer;
+import io.vertx.core.http.HttpServerResponse;
+import io.vertx.ext.web.Router;
 import net.technolords.benchmark.resource.ResourceManager;
 
 public class VertxMain {
@@ -20,14 +23,20 @@ public class VertxMain {
         } catch (IOException e) {
             LOGGER.error("Failed to buffer response", e);
         }
-        Vertx
-                .vertx(this.createVertxOptions())
-                .createHttpServer()
-                .requestHandler(httpServerRequest -> httpServerRequest.response()
-                        .setChunked(true)
-                        .putHeader("Content-Type", "application/json")
-                        .write(BUFFERED_RESPONSE)
-                        .end())
+        Vertx vertx = Vertx
+                .vertx(this.createVertxOptions());
+        HttpServer httpServer = vertx
+                .createHttpServer();
+        Router router = Router.router(vertx);
+        router.route().handler(routingContext -> {
+            HttpServerResponse response = routingContext.response();
+            response.setChunked(true)
+                    .putHeader("Content-Type", "application/json")
+                    .write(BUFFERED_RESPONSE)
+                    .end();
+        });
+        httpServer
+                .requestHandler(router::accept)
                 .listen(9090);
     }
 
@@ -41,8 +50,4 @@ public class VertxMain {
         VertxMain vertxMain = new VertxMain();
         vertxMain.configureAndRun();
     }
-
-    // add verticle?
-    // http://vertx.io/docs/vertx-core/java/
-    // http://vertx.io/docs/vertx-rx/java/
 }

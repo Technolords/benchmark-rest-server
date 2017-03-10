@@ -1,28 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project
-    xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="
-        http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>net.technolords.benchmark</groupId>
-        <artifactId>rest-server</artifactId>
+        <artifactId>benchmark-rest-server</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>jetty9-servlet-annotated</artifactId>
+    <artifactId>vertx3-web</artifactId>
     <packaging>jar</packaging>
-    <name>Technolords :: Benchmark :: Jetty9 :: Servlet @</name>
+    <name>Technolords :: Benchmark :: Vertx web</name>
 
     <!--+
         | Properties
         +-->
     <properties>
-        <version.jetty.server>9.4.2.v20170220</version.jetty.server>
         <version.maven.plugin.shade>2.4.3</version.maven.plugin.shade>
+        <version.vertx>3.4.0</version.vertx>
     </properties>
 
     <!--+
@@ -43,24 +40,9 @@
             | Default scope
             +-->
         <dependency>
-            <!-- Required to create a Jetty server -->
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-server</artifactId>
-            <version>${version.jetty.server}</version>
-        </dependency>
-
-        <dependency>
-            <!-- Required to instantiate a WebAppContext -->
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-webapp</artifactId>
-            <version>${version.jetty.server}</version>
-        </dependency>
-
-        <dependency>
-            <!-- Required to use annotations -->
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-annotations</artifactId>
-            <version>${version.jetty.server}</version>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-web</artifactId>
+            <version>${version.vertx}</version>
         </dependency>
     </dependencies>
 
@@ -88,7 +70,10 @@
                         <configuration>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>net.technolords.benchmark.server.ServletMain</mainClass>
+                                    <mainClass>net.technolords.benchmark.server.VertxMain</mainClass>
+                                </transformer>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                                    <resource>META-INF/services/io.vertx.core.spi.VerticleFactory</resource>
                                 </transformer>
                             </transformers>
                         </configuration>
@@ -97,5 +82,5 @@
             </plugin>
         </plugins>
     </build>
-    
+
 </project>
