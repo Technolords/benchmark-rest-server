@@ -12,7 +12,7 @@
 
     <artifactId>vertx3-web</artifactId>
     <packaging>jar</packaging>
-    <name>Technolords :: Benchmark :: Vertx web</name>
+    <name>Technolords :: Benchmark :: Vertx3 web</name>
 
     <!--+
         | Properties

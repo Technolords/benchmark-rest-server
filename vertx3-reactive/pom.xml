@@ -12,7 +12,7 @@
 
     <artifactId>vertx3-reactive</artifactId>
     <packaging>jar</packaging>
-    <name>Technolords :: Benchmark :: Vertx reactive</name>
+    <name>Technolords :: Benchmark :: Vertx3 reactive</name>
 
     <!--+
         | Properties
@@ -39,14 +39,6 @@
         <!--+
             | Default scope
             +-->
-        <!--
-        <dependency>
-            <groupId>io.vertx</groupId>
-            <artifactId>vertx-rx</artifactId>
-            <version>${version.vertx}</version>
-        </dependency>
-        -->
-
         <dependency>
             <groupId>io.vertx</groupId>
             <artifactId>vertx-rx-java</artifactId>
