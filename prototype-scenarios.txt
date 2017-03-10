@@ -16,3 +16,4 @@ other
                         javax.xml.ws.Endpoint
 
     netty-http ?
+    camel-netty4-http
