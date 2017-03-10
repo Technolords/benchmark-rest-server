@@ -12,6 +12,7 @@ import io.vertx.core.http.HttpServerResponse;
 import io.vertx.ext.web.Router;
 import net.technolords.benchmark.resource.ResourceManager;
 
+// See: http://vertx.io/docs/vertx-web/java/
 public class VertxMain {
     private final Logger LOGGER = LoggerFactory.getLogger(getClass());
     private static String BUFFERED_RESPONSE;

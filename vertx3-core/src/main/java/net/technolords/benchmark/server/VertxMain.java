@@ -9,6 +9,7 @@ import io.vertx.core.Vertx;
 import io.vertx.core.VertxOptions;
 import net.technolords.benchmark.resource.ResourceManager;
 
+// http://vertx.io/docs/vertx-core/java/
 public class VertxMain {
     private final Logger LOGGER = LoggerFactory.getLogger(getClass());
     private static String BUFFERED_RESPONSE;
@@ -42,7 +43,4 @@ public class VertxMain {
         vertxMain.configureAndRun();
     }
 
-    // add verticle?
-    // http://vertx.io/docs/vertx-core/java/
-    // http://vertx.io/docs/vertx-rx/java/
 }
