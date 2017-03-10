@@ -17,3 +17,18 @@ other
 
     netty-http ?
     camel-netty4-http
+
+        4.1.9
+        http://netty.io/wiki/user-guide-for-4.x.html
+        http://netty.io/wiki/
+        https://github.com/netty/netty/blob/4.1/example/pom.xml
+        https://github.com/netty/netty/tree/4.1/example/src/main/java/io/netty/example
+        http://netty.io/4.1/xref/io/netty/example/echo/package-summary.html
+        http://netty.io/4.1/xref/io/netty/example/echo/EchoServer.html
+        http://netty.io/4.1/xref/io/netty/example/echo/EchoServerHandler.html
+
+
+        https://repo1.maven.org/maven2/io/netty/
+            netty-transport
+            netty-handler
+            netty-codec-http and more?

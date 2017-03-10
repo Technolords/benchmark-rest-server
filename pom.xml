@@ -54,6 +54,7 @@
         <module>jetty9-cxf</module>
         <module>jetty9-servlet-annotated</module>
         <module>jetty9-servlet-raw</module>
+        <module>netty4-http</module>
         <module>vertx3-core</module>
         <module>vertx3-reactive</module>
         <module>vertx3-web</module>
