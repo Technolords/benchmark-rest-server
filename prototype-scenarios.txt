@@ -7,6 +7,8 @@ dropwizard
 
 springboot
     spring + jersey     https://dzone.com/articles/spring-boot-building-restful-web-services-with-jersey
+    spring + tomcat/jetty/undertow
+                        https://docs.spring.io/spring-boot/docs/current/reference/html/howto-embedded-servlet-containers.html
 
 vert.x
 
@@ -32,3 +34,5 @@ other
             netty-transport
             netty-handler
             netty-codec-http and more?
+
+     undertow
