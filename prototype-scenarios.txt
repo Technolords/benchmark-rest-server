@@ -1,7 +1,5 @@
 camel
     camel + jetty       (like microservice-mock)
-    camel + cxf         (like password manager)
-    camel + springboot  http://camel.apache.org/spring-boot-example.html
 
 dropwizard
 
