@@ -11,6 +11,7 @@ import io.vertx.rxjava.core.AbstractVerticle;
 import io.vertx.rxjava.core.Vertx;
 import io.vertx.rxjava.core.http.HttpServer;
 import io.vertx.rxjava.core.http.HttpServerResponse;
+import net.technolords.benchmark.config.ConfigurationManager;
 import net.technolords.benchmark.resource.ResourceManager;
 
 // http://vertx.io/docs/vertx-rx/java/
@@ -35,6 +36,7 @@ public class VertxMain extends AbstractVerticle {
         } catch (IOException e) {
             LOGGER.error("Failed to buffer response", e);
         }
+        int port = ConfigurationManager.getPort();
         HttpServer httpServer = vertx.createHttpServer();
         httpServer
                 .requestStream()
@@ -46,12 +48,13 @@ public class VertxMain extends AbstractVerticle {
                             .putHeader("Content-Type", "application/json")
                             .end(BUFFERED_RESPONSE);
                 });
-        httpServer.listen(9090);
+        httpServer.listen(port);
     }
 
     private VertxOptions createVertxOptions() {
         VertxOptions vertxOptions = new VertxOptions();
-        vertxOptions.setWorkerPoolSize(512);
+        int poolSize = ConfigurationManager.getPoolSize();
+        vertxOptions.setWorkerPoolSize(poolSize);
         return vertxOptions;
     }
 
