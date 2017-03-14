@@ -1,5 +1,3 @@
-dropwizard
-
 springboot
     spring + jersey     https://dzone.com/articles/spring-boot-building-restful-web-services-with-jersey
     spring + tomcat/jetty/undertow

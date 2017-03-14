@@ -7,7 +7,8 @@ import net.technolords.benchmark.server.api.CountriesResource;
 
 public class DropwizardMain extends Application<ZeroConfig> {
 
-    public void configureAndRun(String[] args) throws Exception {
+    public void configureAndRun() throws Exception {
+        String[] args = new String[] { "server", "src/main/resources/config.yml" };
         run(args);
     }
 
@@ -28,7 +29,7 @@ public class DropwizardMain extends Application<ZeroConfig> {
 
     public static void main(String[] args) throws Exception {
         DropwizardMain dropwizardMain = new DropwizardMain();
-        dropwizardMain.configureAndRun(args);
+        dropwizardMain.configureAndRun();
     }
 
 }
