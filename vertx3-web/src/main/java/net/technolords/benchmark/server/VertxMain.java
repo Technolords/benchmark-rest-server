@@ -10,6 +10,7 @@ import io.vertx.core.VertxOptions;
 import io.vertx.core.http.HttpServer;
 import io.vertx.core.http.HttpServerResponse;
 import io.vertx.ext.web.Router;
+import net.technolords.benchmark.config.ConfigurationManager;
 import net.technolords.benchmark.resource.ResourceManager;
 
 // See: http://vertx.io/docs/vertx-web/java/
@@ -36,14 +37,16 @@ public class VertxMain {
                     .write(BUFFERED_RESPONSE)
                     .end();
         });
+        int port = ConfigurationManager.getPort();
         httpServer
                 .requestHandler(router::accept)
-                .listen(9090);
+                .listen(port);
     }
 
     private VertxOptions createVertxOptions() {
         VertxOptions vertxOptions = new VertxOptions();
-        vertxOptions.setWorkerPoolSize(512);
+        int poolSize = ConfigurationManager.getPoolSize();
+        vertxOptions.setWorkerPoolSize(poolSize);
         return vertxOptions;
     }
 
