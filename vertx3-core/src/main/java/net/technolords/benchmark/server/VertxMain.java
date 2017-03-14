@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import io.vertx.core.Vertx;
 import io.vertx.core.VertxOptions;
+import net.technolords.benchmark.config.ConfigurationManager;
 import net.technolords.benchmark.resource.ResourceManager;
 
 // http://vertx.io/docs/vertx-core/java/
@@ -21,6 +22,7 @@ public class VertxMain {
         } catch (IOException e) {
             LOGGER.error("Failed to buffer response", e);
         }
+        int port = ConfigurationManager.getPort();
         Vertx
                 .vertx(this.createVertxOptions())
                 .createHttpServer()
@@ -29,12 +31,13 @@ public class VertxMain {
                         .putHeader("Content-Type", "application/json")
                         .write(BUFFERED_RESPONSE)
                         .end())
-                .listen(9090);
+                .listen(port);
     }
 
     private VertxOptions createVertxOptions() {
         VertxOptions vertxOptions = new VertxOptions();
-        vertxOptions.setWorkerPoolSize(512);
+        int poolSize = ConfigurationManager.getPoolSize();
+        vertxOptions.setWorkerPoolSize(poolSize);
         return vertxOptions;
     }
 
