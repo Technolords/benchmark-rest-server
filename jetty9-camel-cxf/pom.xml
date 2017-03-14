@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>net.technolords.benchmark</groupId>
+        <artifactId>benchmark-rest-server</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>jetty9-camel-cxf</artifactId>
+    <packaging>jar</packaging>
+    <name>Technolords :: Benchmark :: Jetty9 Camel CXF</name>
+
+    <!--+
+        | Properties
+        +-->
+    <properties>
+        <version.maven.plugin.shade>2.4.3</version.maven.plugin.shade>
+        <version.camel>2.18.2</version.camel>
+        <version.cxf>3.1.9</version.cxf>
+    </properties>
+
+    <!--+
+        | Dependencies
+        +-->
+    <dependencies>
+
+    <!--+
+        | Technolords dependencies
+        +-->
+        <dependency>
+            <groupId>net.technolords.benchmark</groupId>
+            <artifactId>common-resource</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!--+
+            | Default scope
+            +-->
+        <dependency>
+            <!-- Required to use CXF endpoints in Camel -->
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-cxf</artifactId>
+            <version>${version.camel}</version>
+        </dependency>
+
+        <dependency>
+            <!-- Required to instantiate DestinationFactory, see bus-extensions.txt -->
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-transports-http-jetty</artifactId>
+            <version>${version.cxf}</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <!-- Allow placeholders in files in resources folder to be translated -->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <defaultGoal>install</defaultGoal>
+        <plugins>
+            <plugin>
+                <!-- Required to bundle all dependencies in a single jar (packaging) -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>${version.maven.plugin.shade}</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>net.technolords.benchmark.server.CamelMain</mainClass>
+                                </transformer>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                                    <resource>META-INF/cxf/bus-extensions.txt</resource>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    
+</project>

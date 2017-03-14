@@ -51,6 +51,7 @@
         <module>common-resource</module>
         <module>grizzly1-servlet-raw</module>
         <module>grizzly2-resource-annotated</module>
+        <module>jetty9-camel-cxf</module>
         <module>jetty9-cxf</module>
         <module>jetty9-servlet-annotated</module>
         <module>jetty9-servlet-raw</module>

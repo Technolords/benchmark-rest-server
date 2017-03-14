@@ -1,6 +1,6 @@
 camel
     camel + jetty       (like microservice-mock)
-    camel + cxf
+    camel + cxf         (like password manager)
     camel + springboot  http://camel.apache.org/spring-boot-example.html
 
 dropwizard
@@ -10,10 +10,3 @@ springboot
     spring + tomcat/jetty/undertow
                         https://docs.spring.io/spring-boot/docs/current/reference/html/howto-embedded-servlet-containers.html
 
-other
-    java endpoint       http://stackoverflow.com/questions/3680600/publishing-a-ws-with-jax-ws-endpoint
-                        https://blogs.oracle.com/michaelmcm/entry/http_server_api_in_java
-                        javax.xml.ws.Endpoint
-
-    netty-http ?
-    camel-netty4-http
