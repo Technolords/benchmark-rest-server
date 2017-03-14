@@ -1,6 +1,3 @@
-camel
-    camel + jetty       (like microservice-mock)
-
 dropwizard
 
 springboot
