@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import io.undertow.Undertow;
 import io.undertow.util.Headers;
+import net.technolords.benchmark.config.ConfigurationManager;
 import net.technolords.benchmark.resource.ResourceManager;
 
 public class UndertowMain {
@@ -21,9 +22,12 @@ public class UndertowMain {
         } catch (IOException e) {
             LOGGER.error("Unable to create server", e);
         }
+        int port = ConfigurationManager.getPort();
+        int poolSize = ConfigurationManager.getPoolSize();
         Undertow server = Undertow
                 .builder()
-                .addHttpListener(9090, "localhost")
+                .setWorkerThreads(poolSize)
+                .addHttpListener(port, "localhost")
                 .setHandler(httpServerExchange -> {
                     httpServerExchange.getResponseHeaders().put(Headers.CONTENT_TYPE, JSON_CONTENT_TYPE);
                     httpServerExchange.getResponseSender().send(BUFFERED_RESPONSE);
