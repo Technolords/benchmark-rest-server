@@ -2,6 +2,7 @@ logging:
   level: INFO
 
 server:
+  maxThreads: 512
   applicationConnectors:
   - type: http
     bindHost: 0.0.0.0
