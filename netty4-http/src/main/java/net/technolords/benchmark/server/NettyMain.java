@@ -11,6 +11,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
+import net.technolords.benchmark.config.ConfigurationManager;
 
 public class NettyMain {
     private final Logger LOGGER = LoggerFactory.getLogger(getClass());
@@ -18,7 +19,8 @@ public class NettyMain {
     public void configureAndRun() {
         LOGGER.info("Creating server...");
         EventLoopGroup bossGroup = new NioEventLoopGroup(1);
-        EventLoopGroup workerGroup = new NioEventLoopGroup();
+        int poolSize = ConfigurationManager.getPoolSize();
+        EventLoopGroup workerGroup = new NioEventLoopGroup(poolSize);
         try {
             ServerBootstrap serverBootstrap = new ServerBootstrap();
             serverBootstrap.group(bossGroup, workerGroup)
@@ -26,8 +28,9 @@ public class NettyMain {
                     .channel(NioServerSocketChannel.class)
                     .handler(new LoggingHandler(LogLevel.INFO))
                     .childHandler(new CountriesInitializer());
+            int port = ConfigurationManager.getPort();
             Channel channel = serverBootstrap
-                    .bind(9090)
+                    .bind(port)
                     .sync()
                     .channel();
             channel.closeFuture()
