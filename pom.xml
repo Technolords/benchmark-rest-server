@@ -51,7 +51,7 @@
         <module>common-resource</module>
         <module>grizzly1-servlet-raw</module>
         <module>grizzly2-resource-annotated</module>
-        <module>jersey-dropwizard</module>
+        <module>jetty9-dropwizard</module>
         <module>jetty9-camel-cxf</module>
         <module>jetty9-camel-raw</module>
         <module>jetty9-cxf</module>
