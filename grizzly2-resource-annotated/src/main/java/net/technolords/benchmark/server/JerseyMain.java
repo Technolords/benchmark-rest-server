@@ -11,6 +11,7 @@ import org.glassfish.jersey.server.ResourceConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import net.technolords.benchmark.config.ConfigurationManager;
 import net.technolords.benchmark.server.api.CountriesResource;
 
 /**
@@ -28,7 +29,8 @@ public class JerseyMain {
     }
 
     private URI createBaseURI() {
-        return UriBuilder.fromUri("http://localhost/").port(9090).build();
+        int port = ConfigurationManager.getPort();
+        return UriBuilder.fromUri("http://localhost/").port(port).build();
     }
 
     private ResourceConfig createResourceConfig() {
