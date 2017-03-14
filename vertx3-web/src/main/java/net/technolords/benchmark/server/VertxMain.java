@@ -40,7 +40,7 @@ public class VertxMain {
         int port = ConfigurationManager.getPort();
         httpServer
                 .requestHandler(router::accept)
-                .listen(port);
+                .listen(port, "0.0.0.0");
     }
 
     private VertxOptions createVertxOptions() {

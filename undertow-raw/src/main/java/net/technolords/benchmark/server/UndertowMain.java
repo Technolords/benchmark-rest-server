@@ -27,7 +27,7 @@ public class UndertowMain {
         Undertow server = Undertow
                 .builder()
                 .setWorkerThreads(poolSize)
-                .addHttpListener(port, "localhost")
+                .addHttpListener(port, "0.0.0.0")
                 .setHandler(httpServerExchange -> {
                     httpServerExchange.getResponseHeaders().put(Headers.CONTENT_TYPE, JSON_CONTENT_TYPE);
                     httpServerExchange.getResponseSender().send(BUFFERED_RESPONSE);

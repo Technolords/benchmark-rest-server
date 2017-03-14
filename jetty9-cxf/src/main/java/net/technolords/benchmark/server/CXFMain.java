@@ -25,7 +25,7 @@ public class CXFMain {
     private void configureFactory(JAXRSServerFactoryBean jaxrsServerFactoryBean) throws IOException {
         jaxrsServerFactoryBean.setResourceClasses(CountriesResource.class);
         int port = ConfigurationManager.getPort();
-        jaxrsServerFactoryBean.setAddress("http://localhost:" + port +"/");
+        jaxrsServerFactoryBean.setAddress("http://0.0.0.0:" + port +"/");
     }
 
     public static void main(String[] args) throws Exception {

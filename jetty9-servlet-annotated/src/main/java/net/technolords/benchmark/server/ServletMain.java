@@ -40,7 +40,7 @@ public class ServletMain {
 
     private ServerConnector createServerConnector(Server server) {
         ServerConnector serverConnector = new ServerConnector(server);
-        serverConnector.setHost("localhost");
+        serverConnector.setHost("0.0.0.0");
         serverConnector.setPort(ConfigurationManager.getPort());
         serverConnector.setIdleTimeout(30000L);
         return serverConnector;

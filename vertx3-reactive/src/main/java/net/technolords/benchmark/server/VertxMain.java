@@ -48,7 +48,7 @@ public class VertxMain extends AbstractVerticle {
                             .putHeader("Content-Type", "application/json")
                             .end(BUFFERED_RESPONSE);
                 });
-        httpServer.listen(port);
+        httpServer.listen(port, "0.0.0.0");
     }
 
     private VertxOptions createVertxOptions() {

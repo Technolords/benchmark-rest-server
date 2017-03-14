@@ -30,7 +30,7 @@ public class JerseyMain {
 
     private URI createBaseURI() {
         int port = ConfigurationManager.getPort();
-        return UriBuilder.fromUri("http://localhost/").port(port).build();
+        return UriBuilder.fromUri("http://0.0.0.0/").port(port).build();
     }
 
     private ResourceConfig createResourceConfig() {

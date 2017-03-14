@@ -31,7 +31,7 @@ public class VertxMain {
                         .putHeader("Content-Type", "application/json")
                         .write(BUFFERED_RESPONSE)
                         .end())
-                .listen(port);
+                .listen(port, "0.0.0.0");
     }
 
     private VertxOptions createVertxOptions() {

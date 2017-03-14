@@ -17,7 +17,7 @@ public class CXFManager {
     private static String generateAddress() {
         StringBuilder buffer = new StringBuilder();
         int port = ConfigurationManager.getPort();
-        buffer.append("http://localhost:").append(port).append("/");
+        buffer.append("http://0.0.0.0:").append(port).append("/");
         return buffer.toString();
     }
 }

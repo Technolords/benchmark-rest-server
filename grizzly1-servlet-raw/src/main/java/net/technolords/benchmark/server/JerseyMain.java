@@ -16,7 +16,7 @@ public class JerseyMain {
     public void configureAndRun() throws IOException {
         LOGGER.info("Starting server...");
         int port = ConfigurationManager.getPort();
-        String uri = "http://localhost:" + port + "/countries";
+        String uri = "http://0.0.0.0:" + port + "/countries";
         SelectorThread selectorThread = GrizzlyWebContainerFactory.create(uri, CountriesServlet.class);
         selectorThread.setMaxThreads(ConfigurationManager.getPoolSize());
         selectorThread.run();
