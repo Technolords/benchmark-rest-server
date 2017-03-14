@@ -21,7 +21,7 @@ vertx3-reactive-1.0.0-SNAPSHOT.jar | 857.8 | 222
 vertx3-web-1.0.0-SNAPSHOT.jar | 843.0 | 234
 
 ## Performance run 2
-Selecting four cases from above, the fastest and most stable (avg).<br/>
+Selecting four cases from above, the three fastest and most stable one (avg wise).<br/>
 Test is without validation (of response), longer run time and using 300 threads.
 
 Module | Reference| Tps | Avg | Remarks
@@ -31,7 +31,7 @@ vertx3-core-1.0.0-SNAPSHOT.jar | 1911.9,  Avg: 69 | 2300.2/s | 31
 jetty9-servlet-raw-1.0.0-SNAPSHOT.jar | 2146.2, Avg: 118 | 2705.3/s | 62
 netty4-http-1.0.0-SNAPSHOT.jar | 2042.7,  Avg: 124 | 4228.2/s | 56 | Very variable, load gen on 100% CPU
 
-## Performance run 2
+## Performance run 3
 Select two cases from above, the fastest and re-introduced the dropwizard
 after changing configuration (more threads, and tone down of logging).<br/>
 Test is without validation (of response), and using 40 threads.
