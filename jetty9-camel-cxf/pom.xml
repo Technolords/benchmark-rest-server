@@ -19,7 +19,7 @@
         +-->
     <properties>
         <version.maven.plugin.shade>2.4.3</version.maven.plugin.shade>
-        <version.camel>2.18.2</version.camel>
+        <version.camel>2.22.1</version.camel>
         <version.cxf>3.1.9</version.cxf>
     </properties>
 

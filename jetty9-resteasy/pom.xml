@@ -18,7 +18,7 @@
         | Properties
         +-->
     <properties>
-        <version.jetty.server>9.4.2.v20170220</version.jetty.server>
+        <version.jetty.server>9.4.12.v20180830</version.jetty.server>
         <version.maven.plugin.shade>2.4.3</version.maven.plugin.shade>
         <version.resteasy.jaxrs>3.1.4.Final</version.resteasy.jaxrs>
     </properties>
