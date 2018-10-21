@@ -19,7 +19,7 @@
         +-->
     <properties>
         <version.maven.plugin.shade>2.4.3</version.maven.plugin.shade>
-        <version.vertx>3.4.0</version.vertx>
+        <version.vertx>3.5.4</version.vertx>
     </properties>
 
     <!--+

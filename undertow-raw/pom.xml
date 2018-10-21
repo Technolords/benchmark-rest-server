@@ -19,7 +19,7 @@
         +-->
     <properties>
         <version.maven.plugin.shade>2.4.3</version.maven.plugin.shade>
-        <version.undertow>1.4.9.Final</version.undertow>
+        <version.undertow>2.0.14.Final</version.undertow>
     </properties>
 
     <!--+
